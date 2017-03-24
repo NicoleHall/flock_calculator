@@ -15,7 +15,7 @@ To use this project, please clone the repo called flock_calculator and change di
 To run the test suite, make sure you’re in the flock_calculator directory and run the following command in the command line interface:
 ruby calculator_test.rb
 
-There are several tests and they should all be passing. I like to use minitest. Some folks prefer Rspec because it is more expressive. I’m proficient at RSpec, but for this project minitest will be fine. I also like to use minitest/pride because the output a passing test suite is a series of rainbow dots. And who doesn’t want a little color in their lives?
+There are several tests and they should all be passing. I like to use minitest. Some folks prefer Rspec because it is more expressive. I’m proficient at RSpec, but for this project minitest will be fine. I also like to use minitest/pride because the output of a passing test suite is a series of rainbow dots. And who doesn’t want a little color in their lives?
 
 ## Nicole's Methodology for creating the Calculator class and CalculatorTest class:
 
@@ -23,9 +23,9 @@ According to the directions for Problem #2, a new instance of a Calculator shoul
 ```
 Calc = Calculator.new()
 ```
-If there were supposed to be arguments in the initialize method, the parenthesis next to new would hold data. Since there’s no data in the example I can reasonably no def initialize method with arguments is needed.
+If there were supposed to be arguments in the initialize method, the parenthesis next to .new would hold data. Since there’s no data in the example I can reasonably assume a def initialize method is not needed.
 
-The first test I wrote got deleted. The first test I like to write in a project is to assert a class exists:
+The first test I wrote got deleted. The first test I like to write in a project is to test the class exists:
 ```
 require './calculator.rb'
 require 'minitest/autorun'
@@ -48,11 +48,11 @@ I use this practice to make sure the test file and the file containing the logic
 ```
 cannot load such file -- ./wrong_path_to_calculator.rb (LoadError)
 ```
-Another mistake to avoid is misspelling of class names. If I make a spelling mistake I’ll get an error saying “uninitialized constant.” This is why it’s good to start with a test that simply asserts the class exists. It helps me to catch any errors that are not a result of the logic failing but the result of a test suite that hasn’t been properly set up. I think a problem I’ve had to overcome as  a rookie coder is be able to isolate where an issue is coming from so I can correct it. If there’s too much going on in a test, it become hard to pinpoint the issue.
+Another mistake to avoid is misspelling of class names. If I make a spelling mistake I’ll get an error saying “uninitialized constant.” This is why it’s good to start with a test that simply asserts the class exists. It helps me to catch any errors that are not a result of the logic failing but the result of a test suite that hasn’t been properly set up. A problem I’ve had to overcome as  a rookie coder is be able to isolate where an issue is happening so I can correct it. If there’s too much going on in a test, it becomes hard to pinpoint the issue.
 
 Its fairly easy to avoid spelling mistakes using Atom as my text editor. Atom has an auto-complete function that tries to auto-populate word it’s already seen. My biggest spelling issue is actually within Rails because I’m constantly spelling “params” as “parmas”. That one is pretty easy to debug because I’ve done it about a thousand times.
 
-After I got the “it has a class” test to pass, I deleted it and added the next test to make sure the .add method can sum two integers. The test case provided in the problem shows that the .add function should take two integers as parameters. The example shows that .add(2,2) should return 4, so that is what I wrote as the first test. I named the params “integer_1” and “integer_2” because they are easily readable. I could have used “a” and “b” or “int1” and “int2”. I’ve come to realize that having readable code is pretty important. If I had used “a” and “b” it would have confused a person reading the code because letters are typically strings. If I used “int1” and “int2”, it might confuse a reader who didn’t know I was trying to abbreviate the word integer as “int”. The computer will execute the code no matter what I call the parameters, so I may as well make it easy on everyone and name variables and values in way that is logical to humans.
+After I got the “it has a class” test to pass, I deleted it and added the next test to make sure the .add method can sum two integers. The test case provided in the problem shows that the .add function should take two integers as parameters. The example shows that .add(2,2) should return 4, so that is what I wrote as the first test. I named the params “integer_1” and “integer_2” because they are easily readable. I could have used “a” and “b” or “int1” and “int2”. I’ve come to realize that having readable code is pretty important. If I had used “a” and “b” it would have confused a person reading the code because letters are typically strings. If I used “int1” and “int2”, it might confuse a reader who didn’t know I was trying to abbreviate the word integer as “int”. The computer will execute the code no matter what I call the parameters, so I may as well make it easy on everyone and name variables and parameters in way that is logical to humans.
 
 The next test I wrote is that the .add method should be able to add numbers with decimals properly. I was actually expecting the test to fail because I thought I had to tack on a .to_f method to the integers within the method to turn them into floats. But when the test passed, I remembered that an integer like 2.2 is already a float. This brings me to another coding philosophy: I try to anticipate what the test is going to do. I may be wrong in my assumption, but it the practice of anticipating a result helps me to stay on the right track. If I’m astonished by an outcome, that’s a pretty big signal that something is amiss either with the test or the logic.
 
@@ -60,7 +60,7 @@ Since the example provided had a test case where the .subtract method should be 
 
 I tested each method with decimal numbers as well. Its important to test the corner cases to make sure that there are no surprises, especially in a production environment where users are depending on the software to output reliable data.
 
-The final prompt in the outline of the problem is to make a .divide function. I called the parameters “numerator” and “denominator” because it’s human-readable and the words “numerator” and “denominator” have a very specific meaning when dealing with division.
+The final prompt in the outline of the problem is to make a .divide function. I called the parameters “numerator” and “denominator” because it’s human-readable and the words “numerator” and “denominator” have a specific meaning when dealing with division.
 
 I used a ternary operator, which is a way to compress an if/else statement into a single line. The requirement in the prompt is that the first argument should be divided by the second argument and return the value. But if the first argument is nil, then the return value should be nil.
 
@@ -78,6 +78,6 @@ But I added the “or pipes” (they look like this: ||) and put another conditi
 ```
 numerator == nil ||  denominator == nil
 ```
-The condition is checking to see if numerator is nil, if the denominator is nil, or if both values are valid integers. Based on how the condition is evaluated, the code will behave differently.
+The condition is checking to see if numerator is nil, if the denominator is nil, or if both values are valid integers. Based on how the condition is evaluated, the code will behave differently. There are tests for each of the possibilities.
 
 I’m very excited by the opportunity to join such a supportive and collaborative team. The amount of learning I still need to do is endless. But I’m the kind of person who is persistent and undaunted by the vast unknown. Every problem can be broken down into smaller components and each component can be tackled with some insight, some Googling and by collaborating with more experienced developers who may have solved the same problem in the past.
