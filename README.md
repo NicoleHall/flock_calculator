@@ -76,7 +76,7 @@ numerator == nil
 ```
 But I added the “or pipes” (they look like this: ||) and put another condition so it now reads:
 ```
-numerator == nil ||  denominator == nil
+numerator.nil? ||  denominator.nil?
 ```
 The condition is checking to see if numerator is nil, if the denominator is nil, or if both values are valid integers. Based on how the condition is evaluated, the code will behave differently. There are tests for each of the possibilities.
 

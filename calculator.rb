@@ -13,7 +13,7 @@ def multiply(integer_1, integer_2)
 end
 
 def divide(numerator, denominator)
-  numerator == nil ||  denominator == nil ? nil : numerator / denominator
+  numerator.nil? ||  denominator.nil? ? nil : numerator / denominator
 end
 
 end
