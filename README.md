@@ -72,7 +72,7 @@ I put the condition before the question mark. The condition is checking to see i
 
 Originally, the method was set up to only handle the case where the numerator was nil, but I reasoned that it should probably return nil if the denominator is passed in as nil. This wasn’t in the instructions, but it makes sense to handle both cases. The condition started out as:
 ```
-numerator == nil
+numerator.nil?
 ```
 But I added the “or pipes” (they look like this: ||) and put another condition so it now reads:
 ```
